@@ -199,7 +199,7 @@ export function TrajectoryCalculator() {
                                             borderRadius: "4px",
                                             color: "#F2EBD9",
                                         }}
-                                        formatter={(v: number) => [formatCurrency(v), "Value"]}
+                                        formatter={(v) => [formatCurrency(Number(v)), "Value"]}
                                     />
                                     <Area
                                         type="monotone"
