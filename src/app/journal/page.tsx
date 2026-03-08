@@ -4,41 +4,22 @@ import Link from "next/link";
 import { CinematicReveal } from "@/components/animations/CinematicReveal";
 import { StaggeredBlurText } from "@/components/animations/StaggeredBlurText";
 import { CTASection } from "@/components/sections/CTASection";
+import { JOURNAL_ARTICLES } from "@/lib/journal-data";
 
 export const metadata: Metadata = {
     title: "Journal & Insights | Continental Heritage",
     description: "Perspectives on global markets, wealth preservation, and family governance.",
 };
 
-const ARTICLES = [
-    {
-        id: "navigating-geopolitical-shifts",
-        category: "Market Outlook",
-        date: "March 15, 2026",
-        title: "Navigating Geopolitical Shifts: Capital Preservation in the New Era",
-        excerpt: "An analysis of systemic risks in emerging markets and how historical family portfolios are restructuring their sovereign exposures to maintain absolute preservation.",
-        image: "/images/blog/cover-1.png",
-        featured: true
-    },
-    {
-        id: "the-art-of-succession",
-        category: "Family Governance",
-        date: "February 28, 2026",
-        title: "The Art of Succession: Beyond the Legal Framework",
-        excerpt: "Why the technical perfection of a trust structure is secondary to the psychological preparation of the inheriting generation.",
-        image: "/images/blog/cover-2.png",
-        featured: false
-    },
-    {
-        id: "alternative-yield-strategies",
-        category: "Investment Strategy",
-        date: "February 10, 2026",
-        title: "Uncovering Yield in the Private Credit Ecosystem",
-        excerpt: "Exploring the shift from traditional fixed income towards senior secured private credit to satisfy the yield requirements of large endowments.",
-        image: "/images/sections/insights-hero.png",
-        featured: false
-    }
-];
+const ARTICLES = JOURNAL_ARTICLES.map((a, i) => ({
+    id: a.slug,
+    category: a.category,
+    date: a.date,
+    title: a.title,
+    excerpt: a.excerpt,
+    image: a.coverImage,
+    featured: i === 0,
+}));
 
 export default function JournalPage() {
     const featuredArticle = ARTICLES.find(a => a.featured) || ARTICLES[0];

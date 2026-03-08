@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { JOURNAL_ARTICLES } from '@/lib/journal-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://continentalheritage.com';
@@ -9,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/the-firm',
         '/wealth-strategies',
         '/journal',
+        '/insights',
         '/contact',
         '/privacy',
         '/fsg',
@@ -19,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }));
 
-    // Wealth Strategies Subpages
     const services = [
         '/wealth-strategies/portfolio-management',
         '/wealth-strategies/financial-planning',
@@ -34,5 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
     }));
 
-    return [...routes, ...services];
+    const articles = JOURNAL_ARTICLES.map((article) => ({
+        url: `${baseUrl}/journal/${article.slug}`,
+        lastModified,
+        changeFrequency: 'monthly' as const,
+        priority: 0.5,
+    }));
+
+    return [...routes, ...services, ...articles];
 }

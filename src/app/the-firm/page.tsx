@@ -16,19 +16,29 @@ const HISTORY_TIMELINE = [
         description: "Established in Sydney by a consortium of distinguished financial professionals to directly manage the complex assets of three prominent Australian families."
     },
     {
-        year: "1994",
-        title: "National Expansion",
-        description: "Expanded our presence across Australia, providing enhanced diversification and true cross-border wealth structuring for our growing client base."
+        year: "1985",
+        title: "European Expansion",
+        description: "Opened our first European liaison office in London, providing clients with direct access to Continental markets and cross-border structuring."
     },
     {
-        year: "2012",
-        title: "The Global Shift",
-        description: "Extended operations across the Asia-Pacific region, bridging traditional Australian wealth management with emerging market opportunities."
+        year: "1995",
+        title: "Wealth Management Launch",
+        description: "Formally launched our integrated wealth management services, consolidating investment, tax, estate, and risk advisory under one fiduciary umbrella."
+    },
+    {
+        year: "2005",
+        title: "$5 Billion Milestone",
+        description: "Surpassed $5 billion in assets under management, cementing our position as one of the Asia-Pacific region's most trusted private wealth custodians."
+    },
+    {
+        year: "2015",
+        title: "Asia-Pacific Expansion",
+        description: "Extended operations across Singapore and Hong Kong, bridging traditional wealth management with the region's explosive growth in first-generation fortunes."
     },
     {
         year: "Present",
         title: "Generational Guardianship",
-        description: "Currently advising the fourth generation of our founding client families, overseeing more than $12.8B in assets globally."
+        description: "Currently advising the fourth generation of our founding client families, overseeing more than $12.8B in assets globally across 14 jurisdictions."
     }
 ];
 
