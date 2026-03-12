@@ -71,7 +71,7 @@ export function GlobalHeader() {
                     <Link href="/" className="relative z-50 flex items-center gap-4 group">
                         <div className={`relative transition-all duration-700 ${isScrolled ? "w-7 h-7" : "w-9 h-9"} group-hover:scale-105`}>
                             <Image
-                                src="/images/logo/main.png"
+                                src="/images/logo/main.webp"
                                 alt="Continental Heritage"
                                 fill
                                 className="object-contain"

@@ -43,7 +43,7 @@ export function SecuritySection() {
             <div
                 className="absolute inset-0 opacity-[0.03] pointer-events-none"
                 style={{
-                    backgroundImage: "url('/images/textures/paper-grain.png')",
+                    backgroundImage: "url('/images/textures/paper-grain.webp')",
                     backgroundSize: "400px",
                 }}
             />

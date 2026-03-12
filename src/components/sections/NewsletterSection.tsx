@@ -27,7 +27,7 @@ export function NewsletterSection() {
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
-                    src="/images/sections/newsletter-image.png"
+                    src="/images/sections/newsletter-image.webp"
                     alt="Continental Heritage Newsletter"
                     fill
                     className="object-cover"

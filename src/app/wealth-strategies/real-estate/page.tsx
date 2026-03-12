@@ -29,7 +29,7 @@ export default function RealEstate() {
     return (
         <main className="min-h-screen bg-forest">
             <section className="relative h-[50vh] overflow-hidden">
-                <Image src="/images/services/real-estate.png" alt="Real Estate Investment" fill className="object-cover" priority />
+                <Image src="/images/services/real-estate.webp" alt="Real Estate Investment" fill className="object-cover" priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/60 to-forest/30" />
                 <div className="absolute inset-0 flex items-end pb-16 md:pb-20">
                     <div className="container">

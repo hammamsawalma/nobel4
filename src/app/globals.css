@@ -247,7 +247,7 @@ blockquote {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/images/textures/paper-grain.png');
+  background-image: url('/images/textures/paper-grain.webp');
   background-size: 400px;
   opacity: 0.04;
   pointer-events: none;
@@ -872,6 +872,22 @@ textarea:focus-visible,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================
+   🔮 GLOW ORB FLOAT (GPU-Offloaded)
+   Pure CSS infinite float for ambient orbs
+   ============================================ */
+
+.glow-orb-float {
+  animation: glow-float 8s ease-in-out infinite;
+}
+
+@keyframes glow-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10px, -20px) scale(1.03); }
+  50% { transform: translate(-5px, -10px) scale(1.05); }
+  75% { transform: translate(8px, -15px) scale(1.02); }
 }
 
 /* ============================================

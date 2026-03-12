@@ -14,7 +14,7 @@ const SERVICES = [
         tagline: "Capital Preserved Across Market Cycles",
         description:
             "Bespoke asset allocation strategies designed to navigate market cycles and preserve purchasing power across generations. We manage complexity so your legacy endures.",
-        image: "/images/services/portfolio.png",
+        image: "/images/services/portfolio.webp",
         href: "/wealth-strategies/portfolio-management",
         stat: { value: "47+", label: "Years of Experience" },
     },
@@ -24,7 +24,7 @@ const SERVICES = [
         tagline: "Your Greatest Asset: Confidentiality",
         description:
             "Robust structural planning to shield your family's assets from unnecessary taxation, litigation, and economic turbulence. Swiss-standard discretion, institutional precision.",
-        image: "/images/services/protection.png",
+        image: "/images/services/protection.webp",
         href: "/wealth-strategies/wealth-protection",
         stat: { value: "98.7%", label: "Client Retention" },
     },
@@ -34,7 +34,7 @@ const SERVICES = [
         tagline: "Legacy by Design, Not by Default",
         description:
             "Careful orchestration of wealth transfer, ensuring your legacy is passed on according to your exact wishes with minimal friction and maximum clarity.",
-        image: "/images/services/planning.png",
+        image: "/images/services/planning.webp",
         href: "/wealth-strategies#estate-planning",
         stat: { value: "$12.8B", label: "Assets Managed" },
     },

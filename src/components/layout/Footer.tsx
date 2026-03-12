@@ -46,7 +46,7 @@ export function Footer() {
     return (
         <footer className="bg-forest-dark pt-24 pb-12 relative z-10 border-t border-[rgba(176,125,75,0.15)]" role="contentinfo">
             {/* Background Texture */}
-            <div className="absolute inset-0 bg-[url('/images/textures/paper-grain.png')] bg-[length:400px] opacity-[0.03] pointer-events-none mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[url('/images/textures/paper-grain.webp')] bg-[length:400px] opacity-[0.03] pointer-events-none mix-blend-overlay" />
 
             <div className="container relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
@@ -56,7 +56,7 @@ export function Footer() {
                         <Link href="/" className="inline-block mb-6 group">
                             <div className="relative w-12 h-12 mb-4 group-hover:drop-shadow-[0_0_15px_rgba(176,125,75,0.6)] group-hover:scale-105 transition-all duration-500">
                                 <Image
-                                    src="/images/logo/main.png"
+                                    src="/images/logo/main.webp"
                                     alt="Continental Heritage"
                                     fill
                                     className="object-contain"

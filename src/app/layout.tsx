@@ -73,6 +73,7 @@ import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { GlobalHeader } from "@/components/layout/GlobalHeader";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Footer } from "@/components/layout/Footer";
+import { AIConcierge } from "@/components/chat/AIConcierge";
 
 /* === Root Layout === */
 export default function RootLayout({
@@ -96,6 +97,7 @@ export default function RootLayout({
           </PageTransition>
           <Footer />
           <MobileNav />
+          <AIConcierge />
         </SmoothScrollProvider>
       </body>
     </html>

@@ -25,7 +25,7 @@ export function AboutSection() {
                     <CinematicReveal direction="right" className="absolute top-0 right-0 bottom-[15%] left-0 lg:left-[10%] z-10 w-full lg:w-[90%]">
                         <div className="relative w-full h-full overflow-hidden rounded-t-[40px] rounded-br-[40px] rounded-bl-xl shadow-2xl border border-copper/10 group">
                             <Image
-                                src="/images/about/main.png"
+                                src="/images/about/main.webp"
                                 alt="Continental Heritage — A Legacy of Wisdom"
                                 fill
                                 className="object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]"
@@ -39,7 +39,7 @@ export function AboutSection() {
                     <CinematicReveal direction="left" delay={0.3} className="absolute bottom-0 left-0 w-[55%] h-[40%] z-20 shadow-[0_20px_40px_rgba(0,0,0,0.6)] rounded-[32px] overflow-hidden border border-copper/20">
                         <div className="relative w-full h-full group bg-forest">
                             <Image
-                                src="/images/about/secondary.png"
+                                src="/images/about/secondary.webp"
                                 alt="Continental Heritage — Heritage Detail"
                                 fill
                                 className="object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]"

@@ -27,7 +27,7 @@ export function HeroSection() {
             {/* Background Image with Parallax */}
             <div className="absolute inset-0 z-0">
                 <ParallaxImage
-                    src="/images/hero/main.png"
+                    src="/images/hero/main.webp"
                     alt="Continental Heritage Wealth Management"
                     className="w-full h-full"
                     speed={0.3}

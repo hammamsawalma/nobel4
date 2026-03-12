@@ -52,7 +52,7 @@ export function TestimonialsSection() {
             {/* Background texture — very subtle */}
             <div
                 className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none"
-                style={{ backgroundImage: "url('/images/sections/testimonials-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+                style={{ backgroundImage: "url('/images/sections/testimonials-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
             />
 
             {/* Restrained decorative quote mark — whisper level */}

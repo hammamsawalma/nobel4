@@ -30,7 +30,7 @@ export default function PortfolioManagement() {
         <main className="min-h-screen bg-forest">
             {/* Hero */}
             <section className="relative h-[50vh] overflow-hidden">
-                <Image src="/images/services/portfolio.png" alt="Portfolio Management" fill className="object-cover" priority />
+                <Image src="/images/services/portfolio.webp" alt="Portfolio Management" fill className="object-cover" priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/60 to-forest/30" />
                 <div className="absolute inset-0 flex items-end pb-16 md:pb-20">
                     <div className="container">

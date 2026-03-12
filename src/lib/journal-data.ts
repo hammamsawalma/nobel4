@@ -17,7 +17,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         category: "Estate Planning",
         readTime: "8 min read",
         excerpt: "How distinguished families preserve capital, values, and governance frameworks across three or more generations.",
-        coverImage: "/images/blog/cover-1.png",
+        coverImage: "/images/blog/cover-1.webp",
         content: `
 ## The Challenge of Multi-Generational Continuity
 
@@ -52,7 +52,7 @@ We invite you to explore how our multi-generational stewardship model can serve 
         category: "Investment Insights",
         readTime: "6 min read",
         excerpt: "Why institutional investors and sophisticated families are allocating increasingly to private credit markets.",
-        coverImage: "/images/blog/cover-2.png",
+        coverImage: "/images/blog/cover-2.webp",
         content: `
 ## The Rise of Private Credit
 
@@ -93,7 +93,7 @@ Private credit is inherently illiquid and requires a committed capital approach 
         category: "Market Commentary",
         readTime: "7 min read",
         excerpt: "How we position client portfolios to withstand — and capitalise upon — an increasingly multipolar geopolitical landscape.",
-        coverImage: "/images/blog/insights-hero.png",
+        coverImage: "/images/blog/insights-hero.webp",
         content: `
 ## A New Era of Uncertainty
 

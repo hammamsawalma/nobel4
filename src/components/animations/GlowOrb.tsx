@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 interface GlowOrbProps {
     color?: "copper" | "forest";
@@ -20,34 +20,29 @@ export function GlowOrb({
     delay = 0,
 }: GlowOrbProps) {
     const bgColor = color === "copper" ? "var(--color-copper)" : "var(--color-forest-light)";
-    
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768);
+    }, []);
+
+    // Reduce blur on mobile for GPU performance
+    const effectiveBlur = isMobile ? Math.min(blur, 60) : blur;
+    const effectiveSize = isMobile ? Math.min(size, 300) : size;
+
     return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: opacity, scale: 1 }}
-            transition={{ duration: 2, delay }}
-            className={`absolute rounded-full pointer-events-none ${className}`}
+        <div
+            className={`absolute rounded-full pointer-events-none glow-orb-float ${className}`}
             style={{
-                width: size,
-                height: size,
+                width: effectiveSize,
+                height: effectiveSize,
                 background: `radial-gradient(circle, ${bgColor} 0%, transparent 70%)`,
-                filter: `blur(${blur}px)`,
+                filter: `blur(${effectiveBlur}px)`,
+                opacity: opacity,
                 zIndex: 0,
+                willChange: "transform",
+                animationDelay: `${delay}s`,
             }}
-        >
-            <motion.div 
-                className="w-full h-full rounded-full"
-                animate={{
-                    y: [0, -20, 0],
-                    x: [0, 10, 0],
-                    scale: [1, 1.05, 1],
-                }}
-                transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-            />
-        </motion.div>
+        />
     );
 }

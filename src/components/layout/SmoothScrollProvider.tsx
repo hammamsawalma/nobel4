@@ -24,7 +24,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
             options={{
                 lerp: 0.1,
                 duration: 1.2,
-                syncTouch: true,
+                syncTouch: false,
             }}
         >
             {children}

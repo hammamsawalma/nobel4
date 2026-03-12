@@ -56,7 +56,7 @@ export default function InsightsPage() {
             {/* Hero */}
             <section className="relative h-[50vh] overflow-hidden">
                 <Image
-                    src="/images/blog/insights-hero.png"
+                    src="/images/blog/insights-hero.webp"
                     alt="Insights & External Perspectives"
                     fill
                     className="object-cover"

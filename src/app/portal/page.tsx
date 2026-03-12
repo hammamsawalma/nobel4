@@ -30,7 +30,7 @@ export default function ClientPortalPage() {
     return (
         <main className="min-h-screen bg-forest relative overflow-hidden flex items-center justify-center px-4 py-32">
             {/* Ambient Background Effects */}
-            <div className="absolute inset-0 bg-[url('/images/textures/paper-grain.png')] bg-[length:400px] opacity-[0.03] pointer-events-none mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[url('/images/textures/paper-grain.webp')] bg-[length:400px] opacity-[0.03] pointer-events-none mix-blend-overlay" />
             <GlowOrb color="copper" size={500} className="absolute -top-40 -right-40 opacity-20" />
             <GlowOrb color="forest" size={400} className="absolute -bottom-40 -left-40 opacity-15" />
 
@@ -45,7 +45,7 @@ export default function ClientPortalPage() {
                         <Link href="/" className="inline-block group mb-6">
                             <div className="relative w-16 h-16 mx-auto mb-4 group-hover:drop-shadow-[0_0_20px_rgba(176,125,75,0.5)] transition-all duration-500">
                                 <Image
-                                    src="/images/logo/main.png"
+                                    src="/images/logo/main.webp"
                                     alt="Continental Heritage"
                                     fill
                                     className="object-contain"

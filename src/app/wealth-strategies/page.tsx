@@ -15,37 +15,37 @@ const STRATEGIES = [
         id: "portfolio",
         title: "Portfolio Management",
         description: "Absolute return focus blending traditional assets with exclusive alternative investments, structured for true capital preservation across market cycles.",
-        image: "/images/services/portfolio.png"
+        image: "/images/services/portfolio.webp"
     },
     {
         id: "estate",
         title: "Estate & Succession",
         description: "Architecting robust frameworks to safely transition wealth, values, and business interests to the next generation without fragmentation.",
-        image: "/images/services/planning.png"
+        image: "/images/services/planning.webp"
     },
     {
         id: "tax",
         title: "Cross-Border Tax Structuring",
         description: "Navigating complex global jurisdictions to optimize the tax efficiency of international assets and corporate holdings.",
-        image: "/images/services/tax.png"
+        image: "/images/services/tax.webp"
     },
     {
         id: "family-office",
         title: "Family Office Services",
         description: "Acting as the centralized operational hub for your family's financial, administrative, and lifestyle requirements.",
-        image: "/images/services/real-estate.png"
+        image: "/images/services/real-estate.webp"
     },
     {
         id: "protection",
         title: "Wealth Protection",
         description: "Implementing robust legal and structural firewalls to shelter family capital from unforeseen liabilities and geopolitical shifts.",
-        image: "/images/services/protection.png"
+        image: "/images/services/protection.webp"
     },
     {
         id: "philanthropy",
         title: "Endowment & Philanthropy",
         description: "Structuring charitable foundations and endowments to ensure your family's social impact is as enduring as its wealth.",
-        image: "/images/services/retirement.png"
+        image: "/images/services/retirement.webp"
     }
 ];
 

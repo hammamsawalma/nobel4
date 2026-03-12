@@ -106,7 +106,7 @@ export function ContactSection() {
                     <CinematicReveal delay={0.3} direction="right">
                         <div className="relative h-[500px] rounded-tr-[60px] rounded-bl-[60px] overflow-hidden border border-copper/20 hidden lg:block">
                             <Image
-                                src="/images/sections/contact-image.png"
+                                src="/images/sections/contact-image.webp"
                                 alt="Continental Heritage Private Office"
                                 fill
                                 className="object-cover"

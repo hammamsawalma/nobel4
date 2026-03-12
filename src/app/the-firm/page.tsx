@@ -71,7 +71,7 @@ export default function TheFirmPage() {
                 <CinematicReveal delay={0.8}>
                     <div className="relative w-full h-[50vh] md:h-[70vh] rounded-tr-[80px] rounded-bl-[80px] overflow-hidden border border-copper/20">
                         <Image
-                            src="/images/about/main.png"
+                            src="/images/about/main.webp"
                             alt="Continental Heritage Boardroom"
                             fill
                             className="object-cover"
