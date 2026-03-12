@@ -188,7 +188,7 @@ export function AIConcierge() {
     return (
         <>
             {/* ── FLOATING WIDGET CONTAINER ── */}
-            <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-4 pointer-events-none">
+            <div className="fixed bottom-24 md:bottom-6 right-6 z-[9999] flex flex-col items-end gap-4 pointer-events-none pb-[env(safe-area-inset-bottom,0px)]">
                 
                 {/* ── GREETING TOOLTIP ── */}
                 <AnimatePresence>
@@ -328,7 +328,7 @@ export function AIConcierge() {
                             </div>
 
                             {/* ── MESSAGES ── */}
-                            <div className="flex-1 overflow-y-auto px-5 py-4 scrollbar-thin">
+                            <div className="flex-1 overflow-y-auto px-5 py-4 scrollbar-thin md:pb-4 pb-20">
                                 {messages.map(msg => (
                                     <ChatBubble key={msg.id} role={msg.role} message={msg.text} />
                                 ))}
