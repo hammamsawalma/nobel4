@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { CinematicReveal } from "@/components/animations/CinematicReveal";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import {
     LineChart,
     Line,
@@ -83,7 +84,7 @@ export function TrajectoryCalculator() {
                                     step={50000}
                                     value={initial}
                                     onChange={(e) => setInitial(Number(e.target.value))}
-                                    className="w-full accent-copper"
+                                    className="w-full range-slider"
                                 />
                                 <span className="text-parchment-light text-lg font-heading">
                                     {formatCurrency(initial)}
@@ -101,7 +102,7 @@ export function TrajectoryCalculator() {
                                     step={500}
                                     value={monthly}
                                     onChange={(e) => setMonthly(Number(e.target.value))}
-                                    className="w-full accent-copper"
+                                    className="w-full range-slider"
                                 />
                                 <span className="text-parchment-light text-lg font-heading">
                                     {formatCurrency(monthly)}
@@ -119,7 +120,7 @@ export function TrajectoryCalculator() {
                                     step={0.5}
                                     value={rate}
                                     onChange={(e) => setRate(Number(e.target.value))}
-                                    className="w-full accent-copper"
+                                    className="w-full range-slider"
                                 />
                                 <span className="text-parchment-light text-lg font-heading">
                                     {rate}%
@@ -137,7 +138,7 @@ export function TrajectoryCalculator() {
                                     step={1}
                                     value={years}
                                     onChange={(e) => setYears(Number(e.target.value))}
-                                    className="w-full accent-copper"
+                                    className="w-full range-slider"
                                 />
                                 <span className="text-parchment-light text-lg font-heading">
                                     {years} years
@@ -146,22 +147,36 @@ export function TrajectoryCalculator() {
 
                             {/* Summary Stats */}
                             <div className="border-t border-copper/20 pt-4 space-y-3 mt-4">
-                                <div className="flex justify-between">
+                                <div className="flex justify-between items-center">
                                     <span className="text-sage text-sm">Total Contributed</span>
                                     <span className="text-parchment-light font-heading">
-                                        {formatCurrency(totalContributed)}
+                                        <AnimatedCounter
+                                            value={totalContributed / 1000}
+                                            prefix="$"
+                                            suffix="K"
+                                            decimals={0}
+                                        />
                                     </span>
                                 </div>
-                                <div className="flex justify-between">
+                                <div className="flex justify-between items-center">
                                     <span className="text-sage text-sm">Projected Value</span>
                                     <span className="text-copper font-heading text-lg">
-                                        {formatCurrency(finalValue)}
+                                        <AnimatedCounter
+                                            value={finalValue / 1000000}
+                                            prefix="$"
+                                            suffix="M"
+                                            decimals={2}
+                                        />
                                     </span>
                                 </div>
-                                <div className="flex justify-between">
+                                <div className="flex justify-between items-center">
                                     <span className="text-sage text-sm">Growth Multiple</span>
                                     <span className="text-copper font-heading">
-                                        {growthMultiple}×
+                                        <AnimatedCounter
+                                            value={Number(growthMultiple)}
+                                            suffix="×"
+                                            decimals={1}
+                                        />
                                     </span>
                                 </div>
                             </div>
@@ -213,6 +228,43 @@ export function TrajectoryCalculator() {
                         </div>
                     </CinematicReveal>
                 </div>
+
+                {/* Post-Calculation CTA */}
+                <CinematicReveal delay={0.5} className="mt-12 max-w-6xl mx-auto">
+                    <div className="relative rounded-[16px] overflow-hidden border border-copper/20 bg-forest-light/60 backdrop-blur-sm p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                        {/* Left shimmer line */}
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper/40 to-transparent" />
+
+                        <div className="text-center md:text-left">
+                            <p className="text-copper text-xs tracking-widest uppercase mb-2">
+                                {Number(growthMultiple) >= 3
+                                    ? "Exceptional Growth Potential"
+                                    : Number(growthMultiple) >= 2
+                                    ? "Strong Wealth Trajectory"
+                                    : "Steady Capital Building"}
+                            </p>
+                            <p className="text-parchment-light text-lg font-heading">
+                                Your projection shows a{" "}
+                                <span className="text-copper">{growthMultiple}×</span> growth multiple over{" "}
+                                <span className="text-copper">{years} years</span>.
+                            </p>
+                            <p className="text-sage text-sm mt-1">
+                                Discuss how Continental Heritage can optimise this trajectory for your family.
+                            </p>
+                        </div>
+
+                        <a
+                            href="/contact"
+                            className="btn btn-glow shrink-0 text-sm tracking-wider px-8 py-3 whitespace-nowrap"
+                        >
+                            Discuss With an Advisor
+                        </a>
+
+                        {/* Bottom shimmer line */}
+                        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper/20 to-transparent" />
+                    </div>
+                </CinematicReveal>
+
             </div>
         </section>
     );

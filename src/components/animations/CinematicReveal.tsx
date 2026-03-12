@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 interface CinematicRevealProps {
     children: ReactNode;
     delay?: number;
-    direction?: "up" | "down" | "left" | "right";
+    direction?: "up" | "down" | "left" | "right" | "scale" | "rotate" | "none";
     className?: string;
 }
 
@@ -16,23 +16,28 @@ export function CinematicReveal({
     direction = "up",
     className = "",
 }: CinematicRevealProps) {
-    const directionOffset = {
-        up: { y: 40, x: 0 },
-        down: { y: -40, x: 0 },
-        left: { x: 40, y: 0 },
-        right: { x: -40, y: 0 },
+    const transformStyles = {
+        up: { y: 40, x: 0, scale: 1, rotate: 0 },
+        down: { y: -40, x: 0, scale: 1, rotate: 0 },
+        left: { x: 40, y: 0, scale: 1, rotate: 0 },
+        right: { x: -40, y: 0, scale: 1, rotate: 0 },
+        scale: { x: 0, y: 0, scale: 0.9, rotate: 0 },
+        rotate: { x: 0, y: 40, scale: 1, rotate: 5 },
+        none: { x: 0, y: 0, scale: 1, rotate: 0 },
     };
 
     return (
         <motion.div
             initial={{
                 opacity: 0,
-                ...directionOffset[direction]
+                ...transformStyles[direction]
             }}
             whileInView={{
                 opacity: 1,
                 y: 0,
-                x: 0
+                x: 0,
+                scale: 1,
+                rotate: 0
             }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{

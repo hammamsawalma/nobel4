@@ -2,117 +2,151 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CinematicReveal } from "@/components/animations/CinematicReveal";
 
 const TESTIMONIALS = [
     {
         quote: "Continental Heritage has done more than manage our assets; they have safeguarded our family's future across three generations with absolute discretion and profound wisdom.",
         author: "Lord H. Harrington",
-        role: "Client since 1982"
+        role: "Client since 1982",
+        initials: "HH",
     },
     {
-        quote: "In an era of algorithmic trading, their dedication to deep institutional memory and bespoke, patient strategies is not just refreshing—it is essential.",
+        quote: "In an era of algorithmic trading, their dedication to deep institutional memory and bespoke, patient strategies is not just refreshing — it is essential.",
         author: "Elena Rostova",
-        role: "Client since 2005"
+        role: "Client since 2005",
+        initials: "ER",
     },
     {
         quote: "Their counsel during our complex cross-border succession planning was invaluable. They operate with a level of sophistication rarely seen today.",
         author: "The Dubois Family Office",
-        role: "Client since 1996"
-    }
+        role: "Client since 1996",
+        initials: "DF",
+    },
 ];
 
 export function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [progress, setProgress] = useState(0);
 
-    // Auto-play interval
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
-        }, 8000); // 8 seconds per slide
+            setProgress(0);
+        }, 8000);
         return () => clearInterval(timer);
     }, []);
 
-    const handleNext = () => {
-        setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
-    };
-
-    const handlePrev = () => {
-        setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
-    };
+    useEffect(() => {
+        setProgress(0);
+        const interval = setInterval(() => {
+            setProgress((p) => Math.min(p + 1, 100));
+        }, 80);
+        return () => clearInterval(interval);
+    }, [currentIndex]);
 
     return (
-        <section className="section-padding bg-forest relative overflow-hidden">
-            {/* Background with Parallax effect feeling */}
+        <section className="relative overflow-hidden bg-forest-dark border-t border-b border-copper/10 min-h-[65vh] flex items-center">
+
+            {/* Background texture — very subtle */}
             <div
-                className="absolute inset-0 z-0 opacity-20 mix-blend-overlay"
+                className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none"
                 style={{ backgroundImage: "url('/images/sections/testimonials-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
             />
 
-            {/* Dark gradient to blend the edges */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-r from-forest via-forest/80 to-forest" />
+            {/* Restrained decorative quote mark — whisper level */}
+            <div
+                className="whisper absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(8rem,16vw,14rem)]"
+                aria-hidden="true"
+            >
+                "
+            </div>
 
-            <div className="container relative z-10">
-                <div className="max-w-4xl mx-auto text-center">
-                    <CinematicReveal>
-                        <Quote size={48} className="text-copper/40 mx-auto mb-8" strokeWidth={1} />
+            <div className="container relative z-10 py-24">
+                <div className="max-w-4xl mx-auto">
+
+                    {/* Eyebrow */}
+                    <CinematicReveal className="text-center mb-14">
+                        <div className="inline-flex items-center gap-4 justify-center">
+                            <div className="copper-rule" />
+                            <p className="eyebrow">Client Voices</p>
+                            <div className="copper-rule" />
+                        </div>
                     </CinematicReveal>
 
-                    <div className="relative h-[250px] md:h-[200px] flex items-center justify-center">
+                    {/* Quote area */}
+                    <div className="relative min-h-[240px] flex flex-col items-center justify-center text-center">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndex}
-                                initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
+                                initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
                                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, y: -20, filter: "blur(5px)" }}
-                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                className="absolute w-full"
+                                exit={{ opacity: 0, y: -16, filter: "blur(4px)" }}
+                                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                                className="w-full"
                             >
-                                <p className="text-2xl md:text-3xl font-heading text-parchment-light leading-relaxed mb-8">
+                                {/* 5 stars */}
+                                <div className="flex justify-center gap-1.5 mb-7">
+                                    {[...Array(5)].map((_, i) => (
+                                        <svg key={i} className="w-3.5 h-3.5 fill-copper" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    ))}
+                                </div>
+
+                                {/* Quote text using heading-card for consistent scale */}
+                                <blockquote className="heading-card mb-9 max-w-3xl mx-auto px-4" style={{ fontStyle: "normal", borderLeft: "none", margin: "0 auto 2.25rem" }}>
                                     &ldquo;{TESTIMONIALS[currentIndex].quote}&rdquo;
-                                </p>
-                                <div>
-                                    <div className="font-heading text-xl text-copper">
-                                        — {TESTIMONIALS[currentIndex].author}
+                                </blockquote>
+
+                                {/* Author */}
+                                <div className="flex items-center justify-center gap-3">
+                                    <div className="w-9 h-9 rounded-full bg-copper/10 border border-copper/25 flex items-center justify-center shrink-0">
+                                        <span className="font-heading text-copper text-xs">{TESTIMONIALS[currentIndex].initials}</span>
                                     </div>
-                                    <div className="text-sm text-sage tracking-widest uppercase mt-2">
-                                        {TESTIMONIALS[currentIndex].role}
+                                    <div className="text-left">
+                                        <p className="font-heading text-parchment-light text-base">{TESTIMONIALS[currentIndex].author}</p>
+                                        <p className="eyebrow mt-1" style={{ color: "rgba(107,124,110,0.6)" }}>{TESTIMONIALS[currentIndex].role}</p>
                                     </div>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
-                    <CinematicReveal delay={0.4} className="mt-12 flex items-center justify-center gap-6">
-                        <button
-                            onClick={handlePrev}
-                            className="p-3 rounded-full border border-copper/30 text-copper hover:bg-copper/10 hover:border-copper transition-all duration-300"
-                            aria-label="Previous testimonial"
-                        >
-                            <ChevronLeft size={20} />
-                        </button>
-                        <div className="flex gap-3">
-                            {TESTIMONIALS.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => setCurrentIndex(idx)}
-                                    className={`transition-all duration-300 rounded-full ${idx === currentIndex
-                                            ? "w-8 h-1.5 bg-copper"
-                                            : "w-2 h-1.5 bg-copper/30 hover:bg-copper/60"
-                                        }`}
-                                    aria-label={`Go to testimonial ${idx + 1}`}
-                                />
-                            ))}
+                    {/* Controls */}
+                    <div className="flex flex-col items-center gap-7 mt-10">
+                        {/* Thin progress bar */}
+                        <div className="w-36 h-px bg-copper/15 relative overflow-hidden rounded-full">
+                            <motion.div
+                                className="absolute left-0 top-0 bottom-0 bg-copper"
+                                style={{ width: `${progress}%` }}
+                                transition={{ duration: 0 }}
+                            />
                         </div>
-                        <button
-                            onClick={handleNext}
-                            className="p-3 rounded-full border border-copper/30 text-copper hover:bg-copper/10 hover:border-copper transition-all duration-300"
-                            aria-label="Next testimonial"
-                        >
-                            <ChevronRight size={20} />
-                        </button>
-                    </CinematicReveal>
+
+                        {/* Navigation: Roman numerals */}
+                        <div className="flex items-center gap-7">
+                            <button onClick={() => setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)} className="p-2 text-sage/40 hover:text-copper transition-colors duration-300" aria-label="Previous testimonial">
+                                <ChevronLeft size={16} />
+                            </button>
+
+                            {["I", "II", "III"].map((roman, idx) => (
+                                <button
+                                    key={roman}
+                                    onClick={() => setCurrentIndex(idx)}
+                                    className={`font-heading text-sm transition-all duration-300 ${idx === currentIndex ? "text-copper" : "text-sage/30 hover:text-sage/60"}`}
+                                    aria-label={`Go to testimonial ${idx + 1}`}
+                                >
+                                    {roman}
+                                </button>
+                            ))}
+
+                            <button onClick={() => setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length)} className="p-2 text-sage/40 hover:text-copper transition-colors duration-300" aria-label="Next testimonial">
+                                <ChevronRight size={16} />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -79,8 +79,8 @@ export default function WealthStrategiesPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {STRATEGIES.map((strategy, index) => (
                             <CinematicReveal key={strategy.id} delay={index * 0.1} className="h-full">
-                                <CopperGlow className="h-full group">
-                                    <div id={strategy.id} className="velvet-card h-full p-6">
+                                <CopperGlow className="h-full block">
+                                    <div id={strategy.id} className="heritage-card h-full p-6 group pointer-events-auto">
                                         <div className="relative h-64 mb-8 overflow-hidden rounded-sm border border-copper/20">
                                             <Image
                                                 src={strategy.image}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Bookmark, Compass, Mail, Briefcase } from "lucide-react";
+import { Home, Bookmark, Compass, Mail, Briefcase, Lock } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const MOBILE_NAV_LINKS = [
@@ -10,7 +10,7 @@ const MOBILE_NAV_LINKS = [
     { label: "Firm", href: "/the-firm", icon: Briefcase },
     { label: "Strategies", href: "/wealth-strategies", icon: Compass },
     { label: "Journal", href: "/journal", icon: Bookmark },
-    { label: "Contact", href: "/contact", icon: Mail },
+    { label: "Portal", href: "/portal", icon: Lock },
 ];
 
 export function MobileNav() {
@@ -38,10 +38,10 @@ export function MobileNav() {
 
     return (
         <div
-            className={`lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forest/95 backdrop-blur-md border-t border-copper/10 transition-transform duration-300 pb-safe ${isVisible ? "translate-y-0" : "translate-y-full"
+            className={`lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forest-dark/80 backdrop-blur-xl border-t border-copper/30 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transition-transform duration-500 pb-safe ${isVisible ? "translate-y-0" : "translate-y-full"
                 }`}
         >
-            <nav className="flex justify-around items-center h-16 px-2">
+            <nav className="flex justify-around items-center h-16 px-2" role="navigation" aria-label="Mobile navigation">
                 {MOBILE_NAV_LINKS.map((link) => {
                     const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                     const Icon = link.icon;

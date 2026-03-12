@@ -107,17 +107,17 @@ export default function TheFirmPage() {
                                 <div className="flex flex-col md:flex-row gap-8 md:gap-16 mb-16 last:mb-0 group">
                                     {/* Year Column */}
                                     <div className="md:w-1/4 md:text-right shrink-0">
-                                        <span className="text-4xl md:text-5xl font-heading text-copper/50 group-hover:text-copper transition-colors duration-500">
+                                        <span className="text-4xl md:text-5xl font-heading text-copper/50 group-hover:text-copper group-hover:drop-shadow-[0_0_10px_rgba(176,125,75,0.5)] transition-all duration-500 inline-block group-hover:scale-110 group-hover:-translate-x-2">
                                             {item.year}
                                         </span>
                                     </div>
 
                                     {/* Content Column */}
-                                    <div className="md:w-3/4 relative pb-16 md:pb-0 md:border-l border-copper/20 md:pl-16">
+                                    <div className="md:w-3/4 relative pb-16 md:pb-0 md:border-l border-copper/20 md:pl-16 group-hover:border-copper/50 transition-colors duration-500">
                                         {/* Decorative node on timeline - Desktop only */}
-                                        <div className="hidden md:block absolute -left-2 top-3 w-4 h-4 rounded-full bg-forest border-2 border-copper group-hover:bg-copper transition-colors duration-500" />
+                                        <div className="hidden md:block absolute -left-[9px] top-3 w-4 h-4 rounded-full bg-forest border-2 border-copper group-hover:bg-copper group-hover:shadow-[0_0_15px_rgba(176,125,75,0.6)] group-hover:scale-125 transition-all duration-500 z-10" />
 
-                                        <h3 className="text-2xl mb-4 text-parchment-light">{item.title}</h3>
+                                        <h3 className="text-2xl mb-4 text-parchment-light transition-colors group-hover:text-copper-light">{item.title}</h3>
                                         <p className="text-sage text-lg leading-relaxed">
                                             {item.description}
                                         </p>

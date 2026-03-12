@@ -41,9 +41,13 @@ export function SecuritySection() {
         <section className="section-padding relative overflow-hidden bg-forest-dark">
             {/* Background */}
             <div
-                className="absolute inset-0 bg-cover bg-center opacity-8"
-                style={{ backgroundImage: "url('/images/sections/security_bg.png')" }}
+                className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                style={{
+                    backgroundImage: "url('/images/textures/paper-grain.png')",
+                    backgroundSize: "400px",
+                }}
             />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(176,125,75,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(176,125,75,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
             <div className="absolute inset-0 bg-forest-dark/95" />
 
             <div className="container relative z-10">
@@ -70,12 +74,13 @@ export function SecuritySection() {
                     </CinematicReveal>
                 </div>
 
-                {/* Features */}
+        {/* Features */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     {FEATURES.map((feature, i) => (
                         <CinematicReveal key={i} delay={0.1 * i}>
-                            <div className="velvet-card p-6 flex gap-5 h-full group">
-                                <div className="shrink-0 w-12 h-12 rounded-full bg-copper/10 flex items-center justify-center border border-copper/20 group-hover:border-copper/50 transition-colors">
+                            <div className="heritage-card p-6 flex gap-5 h-full group pointer-events-auto">
+                                <div className="relative shrink-0 w-12 h-12 rounded-full bg-copper/5 flex items-center justify-center border border-copper/30 group-hover:border-copper transition-colors duration-500">
+                                    <div className="absolute inset-0 rounded-full border border-copper opacity-0 scale-150 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700" />
                                     <feature.icon className="w-5 h-5 text-copper" />
                                 </div>
                                 <div>
@@ -90,6 +95,18 @@ export function SecuritySection() {
                         </CinematicReveal>
                     ))}
                 </div>
+
+                {/* Micro-CTA */}
+                <CinematicReveal delay={0.6} className="text-center mt-12">
+                    <a
+                        href="/the-firm"
+                        className="inline-flex items-center gap-2 text-sm text-copper/70 hover:text-copper transition-colors tracking-wider group"
+                    >
+                        Explore Our Governance Framework
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </CinematicReveal>
+
             </div>
         </section>
     );

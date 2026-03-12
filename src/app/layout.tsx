@@ -87,11 +87,12 @@ export default function RootLayout({
     >
       <body>
         <SmoothScrollProvider>
+          <a href="#main-content" className="skip-nav">Skip to main content</a>
           <ScrollProgressBar />
           <GlobalHeader />
           <PageTransition>
             {/* Add top padding equivalent to header height so content isn't hidden under the fixed header */}
-            <div className="pt-24 pb-16 lg:pb-0">{children}</div>
+            <div id="main-content" className="pt-24 pb-16 lg:pb-0" role="main">{children}</div>
           </PageTransition>
           <Footer />
           <MobileNav />

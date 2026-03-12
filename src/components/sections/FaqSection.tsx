@@ -68,21 +68,21 @@ export function FaqSection() {
                             const isOpen = openIndex === i;
                             return (
                                 <CinematicReveal key={i} delay={0.05 * i}>
-                                    <div className="velvet-card overflow-hidden">
+                                    <div className={`velvet-card overflow-hidden transition-all duration-300 border-l-2 ${isOpen ? 'border-l-copper bg-forest-light' : 'border-l-transparent hover:border-l-copper/30'}`}>
                                         <button
                                             onClick={() => setOpenIndex(isOpen ? null : i)}
                                             className="w-full flex items-center justify-between p-6 text-left cursor-pointer group"
                                             aria-expanded={isOpen}
                                         >
-                                            <span className="text-parchment-light font-heading text-lg pr-4 group-hover:text-copper transition-colors">
+                                            <span className={`font-heading text-lg pr-4 transition-colors ${isOpen ? 'text-gradient-copper' : 'text-parchment-light group-hover:text-copper'}`}>
                                                 {item.question}
                                             </span>
                                             <motion.span
                                                 animate={{ rotate: isOpen ? 180 : 0 }}
-                                                transition={{ duration: 0.3 }}
-                                                className="shrink-0"
+                                                transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
+                                                className={`shrink-0 flex items-center justify-center w-8 h-8 rounded-full transition-colors ${isOpen ? 'bg-copper/20 shadow-[0_0_15px_rgba(176,125,75,0.4)]' : 'bg-transparent group-hover:bg-copper/5'}`}
                                             >
-                                                <ChevronDown className="w-5 h-5 text-copper" />
+                                                <ChevronDown className={`w-5 h-5 transition-colors ${isOpen ? 'text-copper-light' : 'text-copper'}`} />
                                             </motion.span>
                                         </button>
 
@@ -107,6 +107,19 @@ export function FaqSection() {
                             );
                         })}
                     </div>
+
+                    {/* FAQ Footer CTA */}
+                    <CinematicReveal delay={0.4} className="text-center mt-16 pt-10 border-t border-copper/10">
+                        <p className="text-sage text-sm mb-4">Still have questions about our approach?</p>
+                        <a
+                            href="/contact"
+                            className="inline-flex items-center gap-2 btn btn-secondary text-sm px-8 py-3"
+                        >
+                            Contact Us Directly
+                            <span>→</span>
+                        </a>
+                    </CinematicReveal>
+
                 </div>
             </div>
         </section>

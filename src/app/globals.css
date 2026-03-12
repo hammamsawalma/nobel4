@@ -52,13 +52,22 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-island: 32px;
+
+  /* === New Visual Tokens === */
+  --glow-copper: rgba(176, 125, 75, 0.4);
+  --glow-forest: rgba(26, 61, 43, 0.6);
 }
 
 /* ============================================
    🔤 TYPOGRAPHY SYSTEM
    ============================================ */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   color: var(--color-parchment);
   font-weight: 400;
@@ -101,7 +110,8 @@ p {
   max-width: 70ch;
 }
 
-.accent-text, blockquote {
+.accent-text,
+blockquote {
   font-family: var(--font-accent);
   font-style: italic;
   color: var(--color-copper-light);
@@ -135,17 +145,15 @@ blockquote {
    ============================================ */
 
 .velvet-card {
-  background: linear-gradient(
-    145deg,
-    rgba(13, 40, 24, 0.95),
-    rgba(26, 61, 43, 0.85)
-  );
+  background: linear-gradient(145deg,
+      rgba(13, 40, 24, 0.95),
+      rgba(26, 61, 43, 0.85));
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  transition: 
+  transition:
     transform var(--transition-base),
     border-color var(--transition-base),
     box-shadow var(--transition-base);
@@ -155,11 +163,9 @@ blockquote {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(176, 125, 75, 0.06),
-    transparent 40%
-  );
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(176, 125, 75, 0.06),
+      transparent 40%);
   opacity: 0;
   transition: opacity var(--transition-base);
   pointer-events: none;
@@ -168,7 +174,7 @@ blockquote {
 .velvet-card:hover {
   transform: translateY(-4px);
   border-color: rgba(176, 125, 75, 0.4);
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(176, 125, 75, 0.1),
     inset 0 1px 0 rgba(176, 125, 75, 0.1);
@@ -176,6 +182,46 @@ blockquote {
 
 .velvet-card:hover::before {
   opacity: 1;
+}
+
+/* Heritage Card - Premium */
+.heritage-card {
+  background: linear-gradient(
+    145deg,
+    rgba(13, 40, 24, 0.95),
+    rgba(17, 48, 32, 0.9)
+  );
+  border: 1px solid rgba(176, 125, 75, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+  box-shadow: inset 0 0 20px rgba(176, 125, 75, 0.05);
+}
+
+.heritage-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(176, 125, 75, 0.5);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 30px rgba(176, 125, 75, 0.1);
+}
+
+/* Glass Card - Subtle */
+.glass-card {
+  background: rgba(26, 61, 43, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(242, 235, 217, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  background: rgba(26, 61, 43, 0.4);
+  border-color: rgba(176, 125, 75, 0.2);
 }
 
 /* ============================================
@@ -216,14 +262,12 @@ blockquote {
 
 .copper-divider {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-copper-dark) 20%,
-    var(--color-copper) 50%,
-    var(--color-copper-dark) 80%,
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      var(--color-copper-dark) 20%,
+      var(--color-copper) 50%,
+      var(--color-copper-dark) 80%,
+      transparent);
   position: relative;
   margin-block: 3rem;
   overflow: hidden;
@@ -236,18 +280,21 @@ blockquote {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(212, 167, 106, 0.6) 50%,
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(212, 167, 106, 0.6) 50%,
+      transparent);
   animation: copper-shimmer 4s ease-in-out infinite;
 }
 
 @keyframes copper-shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 /* Decorative copper divider with patina dot */
@@ -263,12 +310,10 @@ blockquote {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-copper) 50%,
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      var(--color-copper) 50%,
+      transparent);
 }
 
 .copper-divider-ornate .dot {
@@ -297,7 +342,7 @@ blockquote {
   text-decoration: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: 
+  transition:
     background-color var(--transition-base),
     color var(--transition-base),
     transform var(--transition-fast),
@@ -319,7 +364,7 @@ blockquote {
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: scale(0.97);
 }
 
 .btn-secondary {
@@ -335,7 +380,61 @@ blockquote {
 }
 
 .btn-secondary:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-parchment);
+  border: none;
+  padding-inline: 0;
+  position: relative;
+  border-radius: 0;
+}
+
+.btn-ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-copper);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-base);
+}
+
+.btn-ghost:hover {
+  color: var(--color-copper-light);
   transform: translateY(0);
+}
+
+.btn-ghost:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-ghost:active {
+  transform: scale(0.97);
+}
+
+.btn-glow {
+  background: var(--color-copper);
+  color: var(--color-forest);
+  border: none;
+  box-shadow: 0 0 15px var(--glow-copper);
+  animation: pulse-glow 3s infinite alternate;
+}
+
+.btn-glow:hover {
+  background: var(--color-copper-light);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(212, 167, 106, 0.6);
+}
+
+.btn-glow:active {
+  transform: scale(0.97);
 }
 
 /* ============================================
@@ -390,7 +489,9 @@ blockquote {
    📝 FORM ELEMENTS
    ============================================ */
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: var(--font-body);
   background: rgba(13, 40, 24, 0.6);
   border: 1px solid var(--color-border);
@@ -398,20 +499,91 @@ input, textarea, select {
   padding: 0.875rem 1rem;
   color: var(--color-parchment);
   font-size: 1rem;
-  transition: 
+  transition:
     border-color var(--transition-base),
     box-shadow var(--transition-base);
   width: 100%;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--color-sage);
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--color-copper);
   box-shadow: 0 0 0 3px rgba(176, 125, 75, 0.15);
+}
+
+/* ============================================
+   🎛️ CUSTOM RANGE SLIDER
+   ============================================ */
+
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none; 
+  width: 100%;
+  background: transparent;
+  height: 20px;
+  padding: 0;
+  border: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(176, 125, 75, 0.2);
+  border-radius: 2px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--color-copper);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  box-shadow: 0 0 10px rgba(176, 125, 75, 0.5);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--color-copper-light);
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(176, 125, 75, 0.2);
+  border-radius: 2px;
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--color-copper);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(176, 125, 75, 0.5);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+input[type=range]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  background: var(--color-copper-light);
 }
 
 /* ============================================
@@ -454,7 +626,8 @@ input:focus, textarea:focus, select:focus {
   font-weight: 600;
 }
 
-.prose ul, .prose ol {
+.prose ul,
+.prose ol {
   padding-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -472,29 +645,38 @@ input:focus, textarea:focus, select:focus {
    ============================================ */
 
 /* Text colors */
-.text-copper { color: var(--color-copper); }
-.text-parchment { color: var(--color-parchment); }
-.text-sage { color: var(--color-sage); }
+.text-copper {
+  color: var(--color-copper);
+}
+
+.text-parchment {
+  color: var(--color-parchment);
+}
+
+.text-sage {
+  color: var(--color-sage);
+}
 
 /* Background */
-.bg-forest { background-color: var(--color-forest); }
-.bg-forest-light { background-color: var(--color-forest-light); }
+.bg-forest {
+  background-color: var(--color-forest);
+}
+
+.bg-forest-light {
+  background-color: var(--color-forest-light);
+}
 
 /* Gradient overlays */
 .overlay-forest {
-  background: linear-gradient(
-    to bottom,
-    rgba(13, 40, 24, 0.7),
-    rgba(13, 40, 24, 0.9)
-  );
+  background: linear-gradient(to bottom,
+      rgba(13, 40, 24, 0.7),
+      rgba(13, 40, 24, 0.9));
 }
 
 .overlay-forest-heavy {
-  background: linear-gradient(
-    to bottom,
-    rgba(13, 40, 24, 0.3),
-    rgba(13, 40, 24, 0.95)
-  );
+  background: linear-gradient(to bottom,
+      rgba(13, 40, 24, 0.3),
+      rgba(13, 40, 24, 0.95));
 }
 
 /* Copper glow effect */
@@ -544,7 +726,10 @@ input:focus, textarea:focus, select:focus {
    ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -553,4 +738,267 @@ input:focus, textarea:focus, select:focus {
   .copper-divider::after {
     animation: none;
   }
+}
+
+/* ============================================
+   🎬 ANIMATIONS & EFFECTS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 10px var(--glow-copper); }
+  100% { box-shadow: 0 0 20px rgba(212, 167, 106, 0.6); }
+}
+
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes text-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.text-gradient-copper {
+  background: linear-gradient(to right, var(--color-copper-light), var(--color-copper), var(--color-copper-dark), var(--color-copper-light));
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-gradient 4s linear infinite;
+}
+
+.section-glow {
+  position: relative;
+}
+
+.section-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 200px;
+  background: radial-gradient(ellipse at top, rgba(176, 125, 75, 0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.border-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.border-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer-sweep 3s infinite;
+  pointer-events: none;
+}
+
+/* ============================================
+   ♿ ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+/* Enhanced focus styles for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip to main content link */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-copper);
+  color: var(--color-forest);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: top 0.2s ease;
+}
+
+.skip-nav:focus {
+  top: 1rem;
+  outline: 2px solid var(--color-parchment);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   🚀 REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   💎 LUXURY CONSISTENCY SYSTEM
+   Standardized utilities for section-level
+   visual consistency across all components
+   ============================================ */
+
+/* --- Increase section breathing room --- */
+:root {
+  --section-padding-y: clamp(5rem, 10vw, 9rem);
+}
+
+/* --- Eyebrow label: copper, tight tracking --- */
+/* Usage: <p className="eyebrow"> */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(176, 125, 75, 0.8);
+  line-height: 1;
+}
+
+/* --- Display heading: hero-scale --- */
+/* Usage: <h1 className="heading-display"> */
+.heading-display {
+  font-family: var(--font-heading);
+  font-size: clamp(3.25rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-parchment-light);
+}
+
+/* --- Section heading: standard h2 across sections --- */
+/* Usage: <h2 className="heading-section"> */
+.heading-section {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-parchment-light);
+}
+
+/* --- Card heading: for cards and manifesto rows --- */
+/* Usage: <h3 className="heading-card"> */
+.heading-card {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--color-parchment-light);
+}
+
+/* --- Body luxury: sage text, generous line-height --- */
+/* Usage: <p className="body-luxury"> */
+.body-luxury {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  color: var(--color-sage);
+  line-height: 1.85;
+  max-width: 48ch;
+}
+
+/* --- Copper rule: horizontal decorative divider --- */
+/* Usage: <div className="copper-rule" /> */
+.copper-rule {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-copper);
+  flex-shrink: 0;
+}
+
+/* --- Section separator: subtle gradient fade between sections --- */
+/* Usage: <div className="section-sep" /> before/after heavy sections */
+.section-sep {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(176, 125, 75, 0.15) 30%,
+    rgba(176, 125, 75, 0.15) 70%,
+    transparent
+  );
+}
+
+/* ============================================
+   🖼️ IMAGE OVERLAYS & CONTRAST SCRIMS
+   Ensure text is always 100% legible over media
+   ============================================ */
+
+.img-tone {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 40, 24, 0.4) 0%,
+    rgba(13, 40, 24, 0.6) 50%,
+    rgba(8, 26, 16, 0.9) 100%
+  );
+  mix-blend-mode: multiply;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.img-tone-heavy {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 26, 16, 0.6) 0%,
+    rgba(8, 26, 16, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* --- Whisper text: barely-visible decorative elements --- */
+/* Usage: for giant "01", "02" decorative numbers */
+.whisper {
+  opacity: 0.04;
+  user-select: none;
+  pointer-events: none;
+  font-family: var(--font-heading);
+  color: var(--color-parchment);
+  line-height: 1;
 }

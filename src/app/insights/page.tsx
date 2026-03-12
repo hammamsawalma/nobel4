@@ -91,15 +91,15 @@ export default function InsightsPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {EXTERNAL_ARTICLES.map((article, i) => (
                             <CinematicReveal key={i} delay={i * 0.1}>
-                                <CopperGlow className="h-full">
+                                <CopperGlow className="h-full block">
                                     <a
                                         href={article.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="velvet-card p-6 h-full flex flex-col group block"
+                                        className="heritage-card p-6 h-full flex flex-col group block pointer-events-auto"
                                     >
                                         <div className="flex items-center justify-between mb-4">
-                                            <span className="text-copper text-xs tracking-widest uppercase">
+                                            <span className="px-3 py-1 bg-gradient-to-r from-copper/10 to-transparent border border-copper/20 rounded-full text-copper text-xs tracking-widest group-hover:border-copper/50 transition-colors duration-300">
                                                 {article.source}
                                             </span>
                                             <ExternalLink className="w-4 h-4 text-sage/40 group-hover:text-copper transition-colors" />
